@@ -74,6 +74,7 @@ static NSMutableArray *registeredApps = nil;
         kMediaPlayerMetaDataTitle,
 
         kMediaControlPlay,
+        kMediaControlStop,
         kMediaControlPause,
         kMediaControlRewind,
         kMediaControlFastForward,
@@ -659,7 +660,7 @@ static NSMutableArray *registeredApps = nil;
 
 - (void)stopWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure
 {
-    [self sendNotSupportedFailure:failure];
+    [self.keyControl homeWithSuccess:success failure:failure];
 }
 
 - (void)rewindWithSuccess:(SuccessBlock)success failure:(FailureBlock)failure
